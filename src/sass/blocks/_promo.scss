@@ -1,3 +1,4 @@
+@import '../base/variables';
 .promo {
     background: url('../img/promo/canBg.png') no-repeat right top;
     padding-top: 53px;
@@ -9,6 +10,16 @@
             justify-content: space-between;
         }
 
+        &__logo {
+            transition: all .4s ease;
+            &:hover {
+                opacity: 0.8;
+            }
+            &:active {
+                opacity: 0.6;
+            }
+        }
+
         .nav {
             margin: 0;
             padding: 0;
@@ -16,7 +27,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-
+            
             &__item {
                 font-weight: 400;
                 font-size: 20px;
@@ -24,9 +35,12 @@
                 text-transform: uppercase;
                 color: #FFFFFF;
                 cursor: pointer;
-                padding-bottom: 10px;
+                padding-bottom: 8px;
                 transition: all 0.7s;
                 border-bottom: 2px solid transparent;
+                &:hover {
+                    opacity: 0.6;
+                }
                 &_active {
                     border-bottom: 2px solid white
                 }
@@ -64,10 +78,10 @@
         background: $main-color;
         transition: all 0.2s ease-in;
         &:hover {
-            transform: translateY(-3px);
+            background: #5EAA2F;
         }
         &:active {
-            transform: translateY(0);
+            color: rgba($color: #fff, $alpha: .3);
         }
     }
 }

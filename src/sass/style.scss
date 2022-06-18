@@ -31,7 +31,9 @@ ul li {
 img {
     width: 100%;
 }
-
+a:hover {
+    text-decoration: none;
+}
 
 @import 'blocks/promo';
 @import 'blocks/cards';

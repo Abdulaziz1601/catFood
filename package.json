@@ -12,7 +12,6 @@
     "browser-sync": "^2.27.10",
     "sass": "^1.52.3"
   },
-  "type": "module",
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
