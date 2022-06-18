@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+@import 'libs/reboot.min';
+@import 'libs/before-effect-slider.min';
+@import 'base/variables';
+@import 'blocks/title';
+@import 'blocks/footer';
+* {
+    font-family: 'Oswald', sans-serif;
+}
+// changing selecting color
+::-moz-selection {
+    color: #fff;
+    background: $main-color;
+}
+
+::selection {
+    color: #fff;
+    background: $main-color;
+}
+
+.container {
+    position: relative;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0;
+}
+ul li {
+    list-style-type: none;
+}
+
+img {
+    width: 100%;
+}
+
+
+@import 'blocks/promo';
+@import 'blocks/cards';
+@import 'blocks/how';
+@import 'blocks/example';

@@ -1,0 +1,56 @@
+@import 'base/variables';
+
+.cards {
+    padding: 82px 0 71px;
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__item {
+        width: 570px;
+        height: 374px;
+        background-color: $secondary-color;
+        padding: 41px 51px 55px 52px;
+    }
+
+    &__upper {
+        display: flex;
+        align-items: center;
+    }
+
+    &__title {
+        margin-left: 62px;
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 36px;
+        text-transform: uppercase;
+    }
+    .FIX {
+        margin-left: 32px;
+    }
+
+    &__descr {
+        margin-top: 39px;
+        font-family: 'Arial';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    &__btn {
+        padding: 4px 0px;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;
+        text-transform: uppercase;
+        color: #000000;
+        margin-top: 37px;
+        transition: all 0.5s ease-in;
+        display: inline-block;
+        &:hover {
+            background: $main-color;
+            color: #fff;
+            transform: skew(-15deg);
+        }
+    }
+}

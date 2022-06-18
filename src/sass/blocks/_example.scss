@@ -1,0 +1,87 @@
+@import '../base/variables';
+
+.example {
+    padding-top: 11px;
+
+    &__title {
+        margin-top: 60px;
+    }
+
+    &__inner {
+        margin-top: 76px;
+        padding: 70px 0 67px;
+        background-color: $secondary-color;
+        &-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    &__block {
+        width: 436px;
+    }
+
+    &__descr {
+        font-family: 'Arial';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #444444;
+    }
+
+    &__cards {
+        margin-top: 70px;
+        width: 366px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__card {
+        padding-top: 15px;
+        border: 1px solid #CDCDCD;
+        position: relative;
+        width: 162px;
+        height: 77px;
+        &-title {
+            font-weight: 400;
+            font-size: 30px;
+            line-height: 37px;
+            text-align: center;
+        }
+
+        &-sub {
+            width: 90%;
+            display: inline-block;
+            background-color: $secondary-color;
+            margin-top: 11px;
+            font-family: 'Arial';
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 14px;
+            text-align: center;
+            color: #444444;
+            position: absolute;
+            transform: translateX(-50%);
+            left: 50%;
+            bottom: -7px;
+
+        }
+    }
+    &__info {
+        width: 327px;
+        display: flex;
+        align-items: center; 
+        justify-content: space-between;
+        margin-top: 55px;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 20px;
+        text-transform: uppercase;
+    }
+    #beforeEffectslider {
+        width: 665px;
+        max-height: 736px;
+    }
+}
