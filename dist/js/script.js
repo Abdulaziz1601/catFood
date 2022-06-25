@@ -1,32 +1,86 @@
 "use strict";
-
 document.addEventListener("DOMContentLoaded", () => {
+    // beforeEffectslider({
+    //     Selector: "#beforeEffectslider", // Element that the slider will be build in
+    //     BeforeImage: "../img/example/before.png", // Before Image
+    //     AfterImage: "../img/example/after.png",// After Image,
+    //     Border: {
+    //         width: 0
+    //     },
+    //     LineColor: 'transparent', //Line size
+    //     Buttons: false,
+    // });
+    
+    // catalog fetching
+    let count = 3;
+    const productsContainer = document.querySelector('.products__wrapper');
 
-    const border = document.querySelectorAll('.nav__item');
+    productsContainer.innerHTML = '<div class="lds-ring cat__spinner"><div></div><div></div><div></div><div></div></div>';
 
-    function removeBorders() {
-        border.forEach(element => {
-            if (element.classList.contains('nav__item_active') && element) {
-                element.classList.remove('nav__item_active');
-            }
-        });
-    }
+    const getProducts = async () => {
+        return await fetch('http://localhost:3001/products')
+            .then(data => data.json())
+            .catch(e => console.log(e));
+    };
 
-    border.forEach(element => {
-        element.addEventListener('click', () => {
-            removeBorders();
-            element.classList.add('nav__item_active');
+    const renderProducts = (count) => {
+        productsContainer.classList.add('products__wrapper_waiting');
+        getProducts().then(data => {
+            data.splice(count);
+            productsContainer.classList.remove('products__wrapper_waiting');
+            productsContainer.innerHTML = '';
+            data.forEach(({ id, img, name, weight, taste, price, }) => {
+                productsContainer.innerHTML += `
+                    <div class="products__item" data-id=${id}>
+                    <div class="products__item-img"><img src=${img} alt=""></div>
+                    <div class="products__item-wrapper">
+                        <div class="products__item-title">${name}</div>
+                        <div class="products__item-descr">
+                            <div>
+                                <dt>Масса</dt>
+                                <dd>${weight}</dd>
+                            </div>
+                            <div>
+                                <dt>Вкус</dt>
+                                <dd>${taste}</dd>
+                            </div>
+                            <div>
+                                <dt>Цена</dt>
+                                <dd>${price}</dd>
+                            </div>
+                        </div>
+                        <button class="products__item-btn">заказать</button>
+                    </div>
+                </div>
+                `
+            });
+            productsContainer.innerHTML += `
+                <div class="products__more">
+                    <div class="products__more-img">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="31" x2="31" y2="60" stroke="#D3D3D3" stroke-width="2" />
+                            <line x1="60" y1="31" y2="31" stroke="#D3D3D3" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="products__more-title">Показать еще 100500 товаров</div>
+                    <div class="products__more-descr">
+                        На самом деле вкусов
+                        гораздо больше!
+                    </div>
+                    <button class="products__more-btn">показать все</button>    
+                </div>
+            `;
         })
-    });
+        .then(() => {
+            const productsMore = document.querySelector('.products__more-btn');
+            productsMore.addEventListener('click', () => {
+                count += 4;
+                renderProducts(count);
+            });
+        });
+    };
 
-    beforeEffectslider({
-        Selector: "#beforeEffectslider", // Element that the slider will be build in
-        BeforeImage: "../img/example/before.png", // Before Image
-        AfterImage: "../img/example/after.png",// After Image,
-        Border: {
-            width: 0
-        },
-        LineColor: 'transparent', //Line size
-        Buttons: false,
-    });
+    renderProducts(count);
+
+
 });

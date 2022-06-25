@@ -1,0 +1,107 @@
+@import '../base/variables';
+
+.more {
+    padding: 0 0 86px;
+    border-top: 3px solid $main-color;
+    position: relative;
+
+
+    &__title {
+        position: absolute;
+        top: -50%;
+        transform: translateY(-65%);
+        display: inline-block;
+        background-color: #fff;
+        text-transform: none;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: -40px;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            z-index: -1;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            right: -35px;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            z-index: -1;
+        }
+    }
+
+    &__wrapper {
+        margin-top: 82px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__products {
+        &-item {
+            border-top: 1px solid #CDCDCD;
+            padding: 15px 0 17px;
+            width: 894px;
+            display: flex;
+
+            &:last-child {
+                border-bottom: 1px solid #CDCDCD;
+            }
+        }
+
+        &-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        &-title {
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #222222;
+        }
+
+        &-count {
+            font-family: 'Arial';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            color: #444444;
+        }
+
+        &-price {
+            font-family: 'Arial';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            color: #444444;
+        }
+
+        &-btn {
+            text-align: center;
+            border: none;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            width: 244px;
+            height: 40px;
+            background: $main-color;
+            margin-left: 40px;
+        }
+    }
+
+    &__promo {
+        width: 245px;
+        height: 100%;
+    }
+}
