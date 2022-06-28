@@ -1,35 +1,48 @@
+
+
+// beforeEffectslider({
+//     Selector: "#beforeEffectslider", // Element that the slider will be build in
+//     BeforeImage: "../img/example/before.png", // Before Image
+//     AfterImage: "../img/example/after.png",// After Image,
+//     Border: {
+//         width: 0
+//     },
+//     LineColor: 'transparent', //Line size
+//     Buttons: false,
+// });
+
+
 "use strict";
 document.addEventListener("DOMContentLoaded", () => {
-    // beforeEffectslider({
-    //     Selector: "#beforeEffectslider", // Element that the slider will be build in
-    //     BeforeImage: "../img/example/before.png", // Before Image
-    //     AfterImage: "../img/example/after.png",// After Image,
-    //     Border: {
-    //         width: 0
-    //     },
-    //     LineColor: 'transparent', //Line size
-    //     Buttons: false,
-    // });
-    
+    // Services
+    async function getResource(url) {
+        let res = await fetch(url);
+        if (!res.ok) {
+            throw new Error(`Could not fetch ${url}, status: ${res.status}`); //Throws (Shows) an Error if smth happens
+        }
+        return await res.json();
+    }
+
+
+    const getProducts = async () => await getResource('http://localhost:3001/products');
+
+    const getProduct = async (id) => await getResource(`http://localhost:3001/products/${id}`);
+
     // catalog fetching
     let count = 3;
-    const productsContainer = document.querySelector('.products__wrapper');
+    const productsContainer = document.querySelector('.products__wrapper'),
+        modal = document.querySelector('.modal');
 
     productsContainer.innerHTML = '<div class="lds-ring cat__spinner"><div></div><div></div><div></div><div></div></div>';
 
-    const getProducts = async () => {
-        return await fetch('http://localhost:3001/products')
-            .then(data => data.json())
-            .catch(e => console.log(e));
-    };
 
     const renderProducts = (count) => {
         productsContainer.classList.add('products__wrapper_waiting');
         getProducts().then(data => {
-            data.splice(count);
+            const arr = data.slice(0, count);
             productsContainer.classList.remove('products__wrapper_waiting');
             productsContainer.innerHTML = '';
-            data.forEach(({ id, img, name, weight, taste, price, }) => {
+            arr.forEach(({ id, img, name, weight, taste, price, }) => {
                 productsContainer.innerHTML += `
                     <div class="products__item" data-id=${id}>
                     <div class="products__item-img"><img src=${img} alt=""></div>
@@ -52,9 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         <button class="products__item-btn">заказать</button>
                     </div>
                 </div>
-                `
+                `;
             });
-            productsContainer.innerHTML += `
+            if (count < data.length) {
+                productsContainer.innerHTML += `
                 <div class="products__more">
                     <div class="products__more-img">
                         <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,18 +83,57 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                     <button class="products__more-btn">показать все</button>    
                 </div>
-            `;
+                `;
+            } else {
+                productsContainer.innerHTML += `
+                    <div class="products__more">
+                        <div class="products__more-title products__more-title_center">No More</div>
+                    </div>
+                `;
+            }
+            return data;
         })
-        .then(() => {
-            const productsMore = document.querySelector('.products__more-btn');
-            productsMore.addEventListener('click', () => {
-                count += 4;
-                renderProducts(count);
+            .then(({ length }) => {
+                if (count < length) {
+                    const productsMore = document.querySelector('.products__more-btn');
+                    productsMore.addEventListener('click', () => {
+                        count += 4;
+                        renderProducts(count);
+                    });
+                }
+            })
+            .then(() => {
+                const productsBtns = document.querySelectorAll('[data-id] .products__item-btn');
+                productsBtns.forEach(p => {
+                    p.addEventListener('click', () => {
+                        const id = p.parentElement.parentElement.getAttribute('data-id');
+                        getProduct(id)
+                            .then(({ name }) => {
+                                openModal(name, modal);
+                            });
+                    });
+                });
             });
-        });
     };
-
     renderProducts(count);
 
+    // Modal
+
+    function openModal(productName, modal) {
+        modal.querySelector('.modal__title').innerHTML = `Your order ${productName}`;
+        modal.classList.add('show');
+        modal.classList.remove('hide');
+        document.body.style.overflow = 'hidden';
+    }
+
+    const close = document.querySelectorAll('[data-close]');
+
+    close.forEach(element => {
+        element.addEventListener('click', () => {
+            modal.classList.add('hide');
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        });
+    });
 
 });

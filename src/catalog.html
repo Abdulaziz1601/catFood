@@ -17,13 +17,13 @@
                     <img src="./img/promo/logo.svg" alt="">
                 </a>
                 <ul class="nav">
-                    <a href="#promo">
+                    <a href="index.html">
                         <li class="nav__item">главная</li>
                     </a>
-                    <a href="#cat">
-                        <li class="nav__item">Каталог продукции</li>
+                    <a href="catalog.html">
+                        <li class="nav__item nav__item_active">Каталог продукции</li>
                     </a>
-                    <a href="#program">
+                    <a href="program.html">
                         <li class="nav__item">подбор программы</li>
                     </a>
                 </ul>
@@ -196,6 +196,17 @@
             </div>
         </div>
     </footer>
+    <div class="modal">
+        <div class="modal__content">
+            <form action="#">
+                <div data-close class="modal__close">&times;</div>
+                <div class="modal__title">Your order</div>
+                <input required placeholder="Ваше имя" name="name" type="text" class="modal__input">
+                <input required placeholder="Ваш номер телефона" name="phone" type="phone" class="modal__input">
+                <button data-close class="btn btn_dark btn_min">Перезвонить мне</button>
+            </form>
+        </div>
+    </div>
     <script src="js/script.js"></script>
 </body>
 
