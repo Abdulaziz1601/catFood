@@ -23,13 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    const getProducts = async () => await getResource('http://localhost:3001/products');
+    const getProducts = async () => await getResource('https://my-json-server.typicode.com/Abdulaziz1601/catFood/products');
 
-    const getProduct = async (id) => await getResource(`http://localhost:3001/products/${id}`);
+    const getProduct = async (id) => await getResource(`https://my-json-server.typicode.com/Abdulaziz1601/catFood/products${id}`);
 
-    const getAdditionals = async () => await getResource('http://localhost:3001/additionals');
+    const getAdditionals = async () => await getResource('https://my-json-server.typicode.com/Abdulaziz1601/catFood/additionals');
 
-    const getAdditional = async (id) => await getResource(`http://localhost:3001/additionals/${id}`);
+    const getAdditional = async (id) => await getResource(`https://my-json-server.typicode.com/Abdulaziz1601/catFood/additionals/${id}`);
 
 
 
