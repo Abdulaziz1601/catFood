@@ -1,0 +1,28 @@
+.btn {
+    text-transform: uppercase;
+    border: none;
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+    padding: 14px 26px;
+    background: $main-color;
+    transition: all 0.2s ease-in;
+    &_min {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 53px;
+        width: 168px;
+        height: 40px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    &:hover {
+        background: #5EAA2F;
+    }
+
+    &:active {
+        color: rgba($color: #fff, $alpha: .3);
+    }
+}

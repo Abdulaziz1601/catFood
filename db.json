@@ -1,175 +1,199 @@
 {
-    "products": [
-        {   
-            "id": 1,
-            "img": "img/catalog/products/p1.png",
-            "name": "Cat Energy PRO 500 г",
-            "weight": "500 г",
-            "taste": "Курица",
-            "price": "700 Р."
-        },
-        {   
-            "id": 2,
-            "img": "img/catalog/products/p2.png",
-            "name": "Cat Energy PRO 1000 г",
-            "weight": "1000 г",
-            "taste": "Курица",
-            "price": "1000 Р."
-        },
-        {   
-            "id": 3,
-            "img": "img/catalog/products/p3.png",
-            "name": "Cat Energy PRO 500 г",
-            "weight": "500 г",
-            "taste": "Рыба",
-            "price": "700 Р."
-        },
-        {   
-            "id": 4,
-            "img": "img/catalog/products/p4.png",
-            "name": "Cat Energy PRO 1000 г",
-            "weight": "1000 г",
-            "taste": "Рыба",
-            "price": "1000 Р."
-        },
-        {   
-            "id": 5,
-            "img": "img/catalog/products/p5.png",
-            "name": "Cat Energy PRO 500 г",
-            "weight": "500 г",
-            "taste": "Гречка",
-            "price": "400 Р."
-        },
-        {   
-            "id": 6,
-            "img": "img/catalog/products/p6.png",
-            "name": "Cat Energy PRO 1000 г",
-            "weight": "1000 г",
-            "taste": "Гречка",
-            "price": "700 Р."
-        },
-        {   
-            "id": 7,
-            "img": "img/catalog/products/p7.png",
-            "name": "Cat Energy PRO 500 г",
-            "weight": "500 г",
-            "taste": "Рис",
-            "price": "700 Р."
-        },
-        {   
-            "id": 1,
-            "img": "img/catalog/products/p1.png",
-            "name": "Cat Energy PRO 500 г",
-            "weight": "500 г",
-            "taste": "Курица",
-            "price": "700 Р."
-        },
-        {   
-            "id": 2,
-            "img": "img/catalog/products/p2.png",
-            "name": "Cat Energy PRO 1000 г",
-            "weight": "1000 г",
-            "taste": "Курица",
-            "price": "1000 Р."
-        },
-        {   
-            "id": 3,
-            "img": "img/catalog/products/p3.png",
-            "name": "Cat Energy PRO 500 г",
-            "weight": "500 г",
-            "taste": "Рыба",
-            "price": "700 Р."
-        },
-        {   
-            "id": 4,
-            "img": "img/catalog/products/p4.png",
-            "name": "Cat Energy PRO 1000 г",
-            "weight": "1000 г",
-            "taste": "Рыба",
-            "price": "1000 Р."
-        },
-        {   
-            "id": 5,
-            "img": "img/catalog/products/p5.png",
-            "name": "Cat Energy PRO 500 г",
-            "weight": "500 г",
-            "taste": "Гречка",
-            "price": "400 Р."
-        },
-        {   
-            "id": 6,
-            "img": "img/catalog/products/p6.png",
-            "name": "Cat Energy PRO 1000 г",
-            "weight": "1000 г",
-            "taste": "Гречка",
-            "price": "700 Р."
-        },
-        {   
-            "id": 7,
-            "img": "img/catalog/products/p7.png",
-            "name": "Cat Energy PRO 500 г",
-            "weight": "500 г",
-            "taste": "Рис",
-            "price": "700 Р."
-        },
-        {   
-            "id": 1,
-            "img": "img/catalog/products/p1.png",
-            "name": "Cat Energy PRO 500 г",
-            "weight": "500 г",
-            "taste": "Курица",
-            "price": "700 Р."
-        },
-        {   
-            "id": 2,
-            "img": "img/catalog/products/p2.png",
-            "name": "Cat Energy PRO 1000 г",
-            "weight": "1000 г",
-            "taste": "Курица",
-            "price": "1000 Р."
-        },
-        {   
-            "id": 3,
-            "img": "img/catalog/products/p3.png",
-            "name": "Cat Energy PRO 500 г",
-            "weight": "500 г",
-            "taste": "Рыба",
-            "price": "700 Р."
-        },
-        {   
-            "id": 4,
-            "img": "img/catalog/products/p4.png",
-            "name": "Cat Energy PRO 1000 г",
-            "weight": "1000 г",
-            "taste": "Рыба",
-            "price": "1000 Р."
-        },
-        {   
-            "id": 5,
-            "img": "img/catalog/products/p5.png",
-            "name": "Cat Energy PRO 500 г",
-            "weight": "500 г",
-            "taste": "Гречка",
-            "price": "400 Р."
-        },
-        {   
-            "id": 6,
-            "img": "img/catalog/products/p6.png",
-            "name": "Cat Energy PRO 1000 г",
-            "weight": "1000 г",
-            "taste": "Гречка",
-            "price": "700 Р."
-        },
-        {   
-            "id": 7,
-            "img": "img/catalog/products/p7.png",
-            "name": "Cat Energy PRO 500 г",
-            "weight": "500 г",
-            "taste": "Рис",
-            "price": "700 Р."
-        }   
-    ],
-    "reply": [
-        
-    ]
+  "products": [
+    {
+      "id": 1,
+      "img": "img/catalog/products/p1.png",
+      "name": "Cat Energy PRO 500 г",
+      "weight": "500 г",
+      "taste": "Курица",
+      "price": "700 Р."
+    },
+    {
+      "id": 2,
+      "img": "img/catalog/products/p2.png",
+      "name": "Cat Energy PRO 1000 г",
+      "weight": "1000 г",
+      "taste": "Курица",
+      "price": "1000 Р."
+    },
+    {
+      "id": 3,
+      "img": "img/catalog/products/p3.png",
+      "name": "Cat Energy PRO 500 г",
+      "weight": "500 г",
+      "taste": "Рыба",
+      "price": "700 Р."
+    },
+    {
+      "id": 4,
+      "img": "img/catalog/products/p4.png",
+      "name": "Cat Energy PRO 1000 г",
+      "weight": "1000 г",
+      "taste": "Рыба",
+      "price": "1000 Р."
+    },
+    {
+      "id": 5,
+      "img": "img/catalog/products/p5.png",
+      "name": "Cat Energy PRO 500 г",
+      "weight": "500 г",
+      "taste": "Гречка",
+      "price": "400 Р."
+    },
+    {
+      "id": 6,
+      "img": "img/catalog/products/p6.png",
+      "name": "Cat Energy PRO 1000 г",
+      "weight": "1000 г",
+      "taste": "Гречка",
+      "price": "700 Р."
+    },
+    {
+      "id": 7,
+      "img": "img/catalog/products/p7.png",
+      "name": "Cat Energy PRO 500 г",
+      "weight": "500 г",
+      "taste": "Рис",
+      "price": "700 Р."
+    },
+    {
+      "id": 1,
+      "img": "img/catalog/products/p1.png",
+      "name": "Cat Energy PRO 500 г",
+      "weight": "500 г",
+      "taste": "Курица",
+      "price": "700 Р."
+    },
+    {
+      "id": 2,
+      "img": "img/catalog/products/p2.png",
+      "name": "Cat Energy PRO 1000 г",
+      "weight": "1000 г",
+      "taste": "Курица",
+      "price": "1000 Р."
+    },
+    {
+      "id": 3,
+      "img": "img/catalog/products/p3.png",
+      "name": "Cat Energy PRO 500 г",
+      "weight": "500 г",
+      "taste": "Рыба",
+      "price": "700 Р."
+    },
+    {
+      "id": 4,
+      "img": "img/catalog/products/p4.png",
+      "name": "Cat Energy PRO 1000 г",
+      "weight": "1000 г",
+      "taste": "Рыба",
+      "price": "1000 Р."
+    },
+    {
+      "id": 5,
+      "img": "img/catalog/products/p5.png",
+      "name": "Cat Energy PRO 500 г",
+      "weight": "500 г",
+      "taste": "Гречка",
+      "price": "400 Р."
+    },
+    {
+      "id": 6,
+      "img": "img/catalog/products/p6.png",
+      "name": "Cat Energy PRO 1000 г",
+      "weight": "1000 г",
+      "taste": "Гречка",
+      "price": "700 Р."
+    },
+    {
+      "id": 7,
+      "img": "img/catalog/products/p7.png",
+      "name": "Cat Energy PRO 500 г",
+      "weight": "500 г",
+      "taste": "Рис",
+      "price": "700 Р."
+    },
+    {
+      "id": 1,
+      "img": "img/catalog/products/p1.png",
+      "name": "Cat Energy PRO 500 г",
+      "weight": "500 г",
+      "taste": "Курица",
+      "price": "700 Р."
+    },
+    {
+      "id": 2,
+      "img": "img/catalog/products/p2.png",
+      "name": "Cat Energy PRO 1000 г",
+      "weight": "1000 г",
+      "taste": "Курица",
+      "price": "1000 Р."
+    },
+    {
+      "id": 3,
+      "img": "img/catalog/products/p3.png",
+      "name": "Cat Energy PRO 500 г",
+      "weight": "500 г",
+      "taste": "Рыба",
+      "price": "700 Р."
+    },
+    {
+      "id": 4,
+      "img": "img/catalog/products/p4.png",
+      "name": "Cat Energy PRO 1000 г",
+      "weight": "1000 г",
+      "taste": "Рыба",
+      "price": "1000 Р."
+    },
+    {
+      "id": 5,
+      "img": "img/catalog/products/p5.png",
+      "name": "Cat Energy PRO 500 г",
+      "weight": "500 г",
+      "taste": "Гречка",
+      "price": "400 Р."
+    },
+    {
+      "id": 6,
+      "img": "img/catalog/products/p6.png",
+      "name": "Cat Energy PRO 1000 г",
+      "weight": "1000 г",
+      "taste": "Гречка",
+      "price": "700 Р."
+    },
+    {
+      "id": 7,
+      "img": "img/catalog/products/p7.png",
+      "name": "Cat Energy PRO 500 г",
+      "weight": "500 г",
+      "taste": "Рис",
+      "price": "700 Р."
+    }
+  ],
+  "additionals": [
+    {
+      "id": 1,
+      "name": "Cat Energy PRO 500 г",
+      "weight": "500 г",
+      "price": "700 Р."
+    },
+    {
+      "id": 2,
+      "name": "ПИТЬЕВАЯ ВОДА",
+      "weight": "5 литров",
+      "price": "50 Р."
+    },
+    {
+      "id": 3,
+      "name": "МОЛОКО",
+      "weight": "1 литр",
+      "price": "100 Р."
+    },
+    {
+      "id": 4,
+      "name": "ВИТАМИНЫ",
+      "weight": "1 упаковка (30 г)",
+      "price": "300 Р."
+    }
+  ],
+  "reply": []
 }

@@ -11,7 +11,6 @@
 //     Buttons: false,
 // });
 
-
 "use strict";
 document.addEventListener("DOMContentLoaded", () => {
     // Services
@@ -27,6 +26,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const getProducts = async () => await getResource('http://localhost:3001/products');
 
     const getProduct = async (id) => await getResource(`http://localhost:3001/products/${id}`);
+
+    const getAdditionals = async () => await getResource('http://localhost:3001/additionals');
+
+    const getAdditional = async (id) => await getResource(`http://localhost:3001/additionals/${id}`);
+
+
 
     // catalog fetching
     let count = 3;
@@ -62,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <dd>${price}</dd>
                             </div>
                         </div>
-                        <button class="products__item-btn">заказать</button>
+                        <button class="btn btn_min products__item-btn">заказать</button>
                     </div>
                 </div>
                 `;
@@ -136,4 +141,47 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    const moreProducts = document.querySelector('.more__products');
+    moreProducts.innerHTML = '<div class="lds-ring center"><div></div><div></div><div></div><div></div></div>';
+    function renderAdditionals() {
+        getAdditionals().then(data => {
+            moreProducts.innerHTML = '';
+            data.forEach(({ id, name, weight, price }) => {
+                moreProducts.innerHTML += `
+                    <div class="more__products-item " data-id=${id}>
+                    <div class="more__products-inner">
+                        <div class="more__products-title">
+                            ${name}
+                        </div>
+                        <div class="more__products-count">
+                            ${weight}
+                        </div>
+                        <div class="more__products-price">
+                            ${price}
+                        </div>
+                    </div>
+                    <button class="btn btn_min more__products-btn">
+                        заказать
+                    </button>
+                </div>
+                `;
+            });
+
+            return data;
+        })
+            .then(() => {
+                const btns = document.querySelectorAll('[data-id] .more__products-btn');
+                btns.forEach(p => {
+                    p.addEventListener('click', () => {
+                        const id = p.parentElement.getAttribute('data-id');
+                        getAdditional(id)
+                            .then(({ name }) => {
+                                openModal(name, modal);
+                            });
+                    });
+                });
+            });
+    }
+
+    renderAdditionals();
 });
