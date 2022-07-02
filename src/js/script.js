@@ -1,5 +1,3 @@
-
-
 // beforeEffectslider({
 //     Selector: "#beforeEffectslider", // Element that the slider will be build in
 //     BeforeImage: "../img/example/before.png", // Before Image
@@ -22,6 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
         return await res.json();
     }
 
+    const postData = async (url, data) => {
+        const res = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: data
+        });
+
+        return await res.json();
+    };
 
     const getProducts = async () => await getResource('http://localhost:3001/products');
 
@@ -31,7 +40,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const getAdditional = async (id) => await getResource(`http://localhost:3001/additionals/${id}`);
 
-
+    const searchFromAll = async (productName) => {
+        return await Promise.all([getProducts(), getAdditionals()])
+            .then(data => {
+                const arr = [];
+                data.forEach(item => arr.push(...item));
+                return arr;
+            })
+            .then(data =>  data.find(item =>  item.name.toLowerCase() === productName).id);
+    };
 
     // catalog fetching
     let count = 3;
@@ -39,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
         modal = document.querySelector('.modal');
 
     productsContainer.innerHTML = '<div class="lds-ring cat__spinner"><div></div><div></div><div></div><div></div></div>';
-
 
     const renderProducts = (count) => {
         productsContainer.classList.add('products__wrapper_waiting');
@@ -49,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
             productsContainer.innerHTML = '';
             arr.forEach(({ id, img, name, weight, taste, price, }) => {
                 productsContainer.innerHTML += `
-                    <div class="products__item" data-id=${id}>
+                    <div class="products__item" data-pid=${id}>
                     <div class="products__item-img"><img src=${img} alt=""></div>
                     <div class="products__item-wrapper">
                         <div class="products__item-title">${name}</div>
@@ -108,10 +124,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             })
             .then(() => {
-                const productsBtns = document.querySelectorAll('[data-id] .products__item-btn');
+                const productsBtns = document.querySelectorAll('[data-pid] .products__item-btn');
                 productsBtns.forEach(p => {
                     p.addEventListener('click', () => {
-                        const id = p.parentElement.parentElement.getAttribute('data-id');
+                        const id = p.parentElement.parentElement.getAttribute('data-pid');
                         getProduct(id)
                             .then(({ name }) => {
                                 openModal(name, modal);
@@ -123,9 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
     renderProducts(count);
 
     // Modal
-
     function openModal(productName, modal) {
-        modal.querySelector('.modal__title').innerHTML = `Your order ${productName}`;
+        modal.querySelector('.modal__title').innerHTML = `Your order <span> ${productName} </span>`;
         modal.classList.add('show');
         modal.classList.remove('hide');
         document.body.style.overflow = 'hidden';
@@ -141,6 +156,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    modal.querySelector('form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(modal.querySelector('form')),
+              p_name = modal.querySelector('.modal__title span').textContent.toLowerCase().trim(),
+              p_id = await searchFromAll(p_name),
+              json = JSON.stringify({
+                    ...Object.fromEntries(formData.entries()),
+                    pid: p_id
+              });
+
+        postData('http://localhost:3001/reply', json)
+            .then(data => {
+                console.log(data);
+            })
+            .catch((e) => console.log("Something went wrong" + e))
+            .finally(() => {
+                e.target.reset();
+            });
+    });
+
+    // Additional Products
     const moreProducts = document.querySelector('.more__products');
     moreProducts.innerHTML = '<div class="lds-ring center"><div></div><div></div><div></div><div></div></div>';
     function renderAdditionals() {
@@ -148,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
             moreProducts.innerHTML = '';
             data.forEach(({ id, name, weight, price }) => {
                 moreProducts.innerHTML += `
-                    <div class="more__products-item " data-id=${id}>
+                    <div class="more__products-item " data-aid=${id}>
                     <div class="more__products-inner">
                         <div class="more__products-title">
                             ${name}
@@ -170,10 +207,10 @@ document.addEventListener("DOMContentLoaded", () => {
             return data;
         })
             .then(() => {
-                const btns = document.querySelectorAll('[data-id] .more__products-btn');
+                const btns = document.querySelectorAll('[data-aid] .more__products-btn');
                 btns.forEach(p => {
                     p.addEventListener('click', () => {
-                        const id = p.parentElement.getAttribute('data-id');
+                        const id = p.parentElement.getAttribute('data-aid');
                         getAdditional(id)
                             .then(({ name }) => {
                                 openModal(name, modal);
