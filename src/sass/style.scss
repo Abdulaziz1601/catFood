@@ -2,7 +2,6 @@
 @import 'libs/reboot.min';
 @import 'libs/before-effect-slider.min';
 @import 'base/variables';
-@import 'base/button';
 @import 'blocks/title';
 * {
     font-family: 'Oswald', sans-serif;
@@ -37,6 +36,8 @@ a:hover {
 .center {
     margin: 0 auto;
 }
+
+@import 'blocks/button';
 @import 'blocks/header';
 @import 'blocks/footer';
 @import 'blocks/promo';

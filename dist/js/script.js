@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <dd>${price}</dd>
                             </div>
                         </div>
-                        <button class="btn btn_min products__item-btn">заказать</button>
+                        <button class="btn products__item-btn">заказать</button>
                     </div>
                 </div>
                 `;
@@ -176,7 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 e.target.reset();
             });
     });
-
     // Additional Products
     const moreProducts = document.querySelector('.more__products');
     moreProducts.innerHTML = '<div class="lds-ring center"><div></div><div></div><div></div><div></div></div>';
@@ -197,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             ${price}
                         </div>
                     </div>
-                    <button class="btn btn_min more__products-btn">
+                    <button class="btn btn_medium more__products-btn">
                         заказать
                     </button>
                 </div>
