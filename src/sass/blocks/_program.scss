@@ -1,0 +1,131 @@
+@import '../base/variables';
+
+.program {
+    padding-bottom: 82px;
+
+    .input {
+        padding: 11px 20px;
+        border: 1px solid #E7E7E7;
+        font-size: 20px;
+        line-height: 30px;
+        text-transform: uppercase;
+        color: #444444;
+    }
+
+    &__header {
+        margin-top: 56px;
+        width: 323px;
+        font-size: 20px;
+        line-height: 30px;
+        text-transform: uppercase;
+        color: #000000;
+    }
+
+    &__info {
+        &-wrapper {
+            margin-top: 66px;
+            display: flex;
+            align-items: center;
+        }
+
+        &-item {
+            width: 569px;
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            line-height: 30px;
+            text-transform: uppercase;
+            color: #444444;
+
+            span {
+                white-space: nowrap;
+
+            }
+
+            &:not(:first-child) {
+                margin-top: 20px;
+            }
+        }
+
+        &-input {
+            margin: 0;
+            margin-left: 14px;
+            width: 100%;
+        }
+
+        &-checkboxes {
+            width: 568px;
+            margin-left: 80px;
+            padding: 25px 25px 25px 28px;
+            border: 1px solid #E7E7E7;
+        }
+
+        &-checkbox {
+            font-family: system-ui,
+                sans-serif;
+            display: grid;
+            grid-template-columns: 1em auto;
+            gap: 0.5em;
+
+            &:not(:first-child) {
+                margin-top: 13px;
+            }
+
+            span {
+                margin-left: 50px;
+                font-size: 20px;
+                line-height: 30px;
+                text-transform: uppercase;
+                color: #222222;
+            }
+
+            &:focus-within {
+                color: rgba($main-color, $alpha: .4);
+            }
+        }
+    }
+
+    input[type="radio"] {
+        /* Add if not using autoprefixer */
+        -webkit-appearance: none;
+        /* Remove most all native input styles */
+        appearance: none;
+        /* For iOS < 15 */
+        /* Not removed via appearance */
+        margin: 0;
+        font: inherit;
+        color: currentColor;
+        width: 40px;
+        height: 40px;
+        transform: translateY(-0.075em);
+        border-radius: 100%;
+        border: 1px solid #CDCDCD;
+        display: grid;
+        place-content: center;
+        transition: 120ms all ease-in-out;
+        background-color: transparent;
+
+        &::before {
+            content: "";
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            transition: 120ms transform ease-in-out;
+        }
+
+        &:checked::before {
+            background-color: $main-color ;
+            width: 18px;
+            height: 18px;
+        }
+
+        &:checked {
+            background-color: transparent;
+        }
+
+        &:focus {
+            outline: max(2px, 0.15em) solid currentColor;
+            outline-offset: max(2px, 0.15em);
+        }
+    }
+}

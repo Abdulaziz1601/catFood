@@ -27,10 +27,52 @@
                         <li class="nav__item nav__item_active">подбор программы</li>
                     </a>
                 </ul>
-            </div>
+            </div>.
         </div>
     </header>
 
+    <main class="program">
+        <div class="container">
+            <div class="title">Подбор программы</div>
+            <div class="program__header">
+                Заполните анкету, и мы подберем программу питания для вашего кота
+            </div>
+            <form action="#" class="program__form">
+                <div class="program__info-wrapper">
+                    <fieldset class="program__info-block">
+                        <label class="program__info-item">
+                            <span>ИМЯ:*</span>
+                            <input class="input program__info-input" type="text">
+                        </label>
+                        <label class="program__info-item">
+                            <span>Вес (кг):*</span>
+                            <input class="input program__info-input" type="number">
+                        </label>
+                        <label class="program__info-item">
+                            <span>Возраст (лет):</span>
+                            <input class="input program__info-input" type="number">
+                        </label>
+                    </fieldset>
+                    <fieldset class="program__info-checkboxes">
+                        <label class="program__info-checkbox">
+                            <input type="radio" name="program" />
+                            <span>похудение</span>
+                        </label>
+
+                        <label class="program__info-checkbox">
+                            <input type="radio" name="program" />
+                            <span>Набор массы</span>
+                        </label>
+
+                        <label class="program__info-checkbox">
+                            <input type="radio" name="program" />
+                            <span>Не знаю (Нужен ваш совет)</span>
+                        </label>
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+    </main>
     <footer class="footer">
         <div class="footer__map">
             <iframe

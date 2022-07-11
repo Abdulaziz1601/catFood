@@ -3,9 +3,37 @@
     font-size: 60px;
     line-height: 60px;
     color: #000000;
+
     &_min {
         font-size: 36px;
         line-height: 36px;
-        text-transform: uppercase;
+    }
+
+    &_decor {
+        position: absolute;
+        top: -50%;
+        transform: translateY(-65%);
+        display: inline-block;
+        background-color: #fff;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: -40px;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            z-index: -1;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            right: -35px;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            z-index: -1;
+        }
     }
 }
