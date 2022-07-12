@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <dd>${price}</dd>
                             </div>
                         </div>
-                        <button class="btn products__item-btn">заказать</button>
+                        <button class="btn btn_min products__item-btn">заказать</button>
                     </div>
                 </div>
                 `;

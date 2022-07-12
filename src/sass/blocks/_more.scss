@@ -2,11 +2,9 @@
 
 .more {
     padding: 0 0 86px;
-    border-top: 3px solid $main-color;
-    position: relative;
 
     &__wrapper {
-        margin-top: 82px;
+        padding-top: calc(82px + 36px);
         display: flex;
         align-items: center;
         justify-content: space-between;

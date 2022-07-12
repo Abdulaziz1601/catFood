@@ -3,7 +3,9 @@
 @import 'base/variables';
 @import 'blocks/title';
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
     font-family: 'Oswald', sans-serif;
     margin: 0;
     padding: 0;
@@ -48,6 +50,10 @@ fieldset {
     margin: 0 auto;
 }
 
+::placeholder {
+    color: #444444;
+    opacity: 1;
+}
 
 @import 'blocks/button';
 @import 'blocks/header';

@@ -1,3 +1,5 @@
+@import '../base/variables';
+
 .title {
     font-weight: 400;
     font-size: 60px;
@@ -11,29 +13,32 @@
 
     &_decor {
         position: absolute;
-        top: -50%;
-        transform: translateY(-65%);
+        top: -0;
         display: inline-block;
         background-color: #fff;
 
-        &::before {
-            content: "";
-            position: absolute;
-            left: -40px;
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-            z-index: -1;
-        }
-
+        &::before,
         &::after {
             content: "";
             position: absolute;
-            right: -35px;
-            width: 100%;
+
+        }
+
+        &::before {
+            left: -40px;
+            right: -40px;
             height: 100%;
             background-color: #fff;
-            z-index: -1;
+            z-index: -2;
+        }
+
+        &::after {
+            top: .6em;
+            left: -1000px;
+            width: 1000vw;
+            height: 3px;
+            background-color: $main-color;
+            z-index: -5;
         }
     }
 }

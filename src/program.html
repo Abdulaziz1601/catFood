@@ -38,37 +38,138 @@
                 Заполните анкету, и мы подберем программу питания для вашего кота
             </div>
             <form action="#" class="program__form">
-                <div class="program__info-wrapper">
+                <div class="program__info">
                     <fieldset class="program__info-block">
-                        <label class="program__info-item">
+                        <label class="program-item program__info-item ">
                             <span>ИМЯ:*</span>
-                            <input class="input program__info-input" type="text">
+                            <input class="input program__info-input" required placeholder="барсик" type="text">
                         </label>
-                        <label class="program__info-item">
+                        <label class="program-item program__info-item">
                             <span>Вес (кг):*</span>
-                            <input class="input program__info-input" type="number">
+                            <input class="input program__info-input" required placeholder="7" type="number">
                         </label>
-                        <label class="program__info-item">
+                        <label class="program-item program__info-item">
                             <span>Возраст (лет):</span>
-                            <input class="input program__info-input" type="number">
+                            <input class="input program__info-input" placeholder="7" type="number">
                         </label>
                     </fieldset>
-                    <fieldset class="program__info-checkboxes">
-                        <label class="program__info-checkbox">
-                            <input type="radio" name="program" />
+                    <fieldset class="program__info-radios">
+                        <label class="program__info-radio">
+                            <input type="radio" name="program" value="похудение" />
                             <span>похудение</span>
                         </label>
 
-                        <label class="program__info-checkbox">
-                            <input type="radio" name="program" />
+                        <label class="program__info-radio">
+                            <input type="radio" name="program" value="Набор массы" />
                             <span>Набор массы</span>
                         </label>
 
-                        <label class="program__info-checkbox">
-                            <input type="radio" name="program" />
+                        <label class="program__info-radio">
+                            <input type="radio" name="program" value="Не знаю (Нужен ваш совет)" />
                             <span>Не знаю (Нужен ваш совет)</span>
                         </label>
                     </fieldset>
+                </div>
+                <div class="program__contacts">
+                    <div class="container">
+                        <div class="title title_min title_decor">
+                            Контактные данные (владельца кота)
+                        </div>
+                        <div class="program__contacts-wrapper">
+                            <label class="program-item">
+                                <span>E-mail:*</span>
+                                <input class="input program__email" required placeholder="kuklachev@gmail.com"
+                                    type="email" name="email">
+                                <svg class="program__icon program__icon_email" width="19" height="14"
+                                    viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="1.18955" y1="6" x2="1.18955" y2="14" stroke="#222222"
+                                        stroke-width="1.3" />
+                                    <line x1="18.1896" y1="6" x2="18.1896" y2="14" stroke="#222222"
+                                        stroke-width="1.3" />
+                                    <line x1="0.539551" y1="13.35" x2="18.5396" y2="13.35" stroke="#222222"
+                                        stroke-width="1.3" />
+                                    <line x1="0.539551" y1="1.35" x2="18.5396" y2="1.35" stroke="#222222"
+                                        stroke-width="1.3" />
+                                    <path
+                                        d="M17.8896 3.1821L9.53957 9.67654L1.18955 3.18209V1.65H4.03955L9.53957 1.65H14.5396H17.8896V3.1821Z"
+                                        stroke="#222222" stroke-width="1.3" />
+                                </svg>
+                            </label>
+                            <label class="program-item program__contacts-item">
+                                <span>Телефон:*</span>
+                                <input class="input program__phone" required placeholder="8 (960) 900-60-90" type="tel"
+                                    name="phoneNumber">
+                                <svg class="program__icon program__icon_phone" width="20" height="20"
+                                    viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_2403_1625)">
+                                        <path
+                                            d="M17.7561 9.4H9.61816V10.6H17.7561L15.7455 12.7L16.6072 13.6L19.5752 10.5C19.6684 10.3702 19.7188 10.2123 19.7188 10.05C19.7188 9.88772 19.6684 9.72982 19.5752 9.6L16.6072 6.5L15.7455 7.4L17.7561 9.4Z"
+                                            fill="black" />
+                                        <path
+                                            d="M8.37362 19.4V13.2C8.36256 13.0447 8.29849 12.8987 8.19306 12.7886C8.08763 12.6785 7.94786 12.6116 7.79917 12.6H3.5866C3.59153 12.9167 3.71415 13.2189 3.92855 13.4428C4.14295 13.6668 4.43232 13.7949 4.73548 13.8H7.12899V18.8H3.5866C3.35992 18.8149 3.13268 18.7825 2.91809 18.7048C2.70349 18.6271 2.50582 18.5057 2.33656 18.3475C2.1673 18.1893 2.02983 17.9976 1.93215 17.7834C1.83446 17.5693 1.7785 17.337 1.76753 17.1V3.10001C1.75968 2.6373 1.92564 2.18977 2.22987 1.85331C2.5341 1.51686 2.95238 1.31824 3.39512 1.30001H7.12899V6.30001H4.83122C4.52806 6.30516 4.23869 6.43324 4.02429 6.65718C3.80989 6.88112 3.68727 7.18336 3.68234 7.50001H7.89491C8.0436 7.48846 8.18337 7.42154 8.2888 7.31142C8.39423 7.2013 8.4583 7.05531 8.46936 6.90001V0.600012C8.42369 0.443872 8.33642 0.304534 8.21775 0.198285C8.09907 0.0920352 7.95389 0.0232649 7.79917 1.23734e-05H3.5866C3.20936 -0.0133408 2.8333 0.0511002 2.47993 0.189651C2.12655 0.328202 1.80279 0.538145 1.52714 0.807477C1.2515 1.07681 1.02939 1.40025 0.8735 1.7593C0.717613 2.11835 0.631012 2.50598 0.618647 2.90001V16.8C0.590902 17.1977 0.642233 17.597 0.769411 17.9729C0.89659 18.3489 1.09686 18.6932 1.35764 18.9844C1.61841 19.2756 1.93405 19.5072 2.28469 19.6648C2.63534 19.8224 3.0134 19.9024 3.39512 19.9H7.79917C7.86953 19.915 7.94222 19.9133 8.01186 19.895C8.0815 19.8767 8.1463 19.8423 8.20147 19.7942C8.25664 19.7462 8.30075 19.6859 8.33055 19.6176C8.36035 19.5494 8.37507 19.475 8.37362 19.4Z"
+                                            fill="black" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_2403_1625">
+                                            <rect width="19.1481" height="20" fill="white"
+                                                transform="translate(0.618652)" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="program__comments">
+                    <div class="container">
+                        <div class="title title_min title_decor">
+                            Комментарий
+                        </div>
+                        <div class="program__comments-wrapper">
+                            <textarea class="input program__comments-input" name="comments"
+                                placeholder="Расскажите обо всех повадках кота"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="program__more">
+                    <div class="container">
+                        <div class="title title_min title_decor">
+                            Дополнительно
+                        </div>
+                        <div class="program__more-wrapper">
+                            <label>
+                                <input class="program__more-checkbox" value="сахарозаменитель" checked type="checkbox"
+                                    name="more" />
+                                <span class="program__more-checkbox_custom"></span>
+                                сахарозаменитель
+                            </label>
+                            <label>
+                                <input class="program__more-checkbox" value="питьевая вода" type="checkbox"
+                                    name="more" />
+                                <span class="program__more-checkbox_custom"></span>
+                                питьевая вода
+                            </label>
+                            <label>
+                                <input class="program__more-checkbox" value="молоко" type="checkbox" name="more" />
+                                <span class="program__more-checkbox_custom"></span>
+                                молоко
+                            </label>
+                            <label>
+                                <input class="program__more-checkbox" type="checkbox" value="витамины" name="more" />
+                                <span class="program__more-checkbox_custom"></span>
+                                витамины
+                            </label>
+                        </div>
+                        <div class="program__more-btns">
+                            <button class="btn btn_extra-large" type="submit">
+                                отправить заявку
+                            </button>
+                            <div class="program__more-info">
+                                * — Обязательные поля
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
@@ -133,6 +234,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="js/form.js"></script>
 </body>
 
 </html>
