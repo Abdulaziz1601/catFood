@@ -1,4 +1,5 @@
 @import '../base/variables';
+
 .how {
     &__wrapper {
         display: flex;
@@ -6,16 +7,42 @@
         justify-content: space-between;
         flex-wrap: wrap;
     }
+
     .how__item {
         width: 245px;
         height: 280px;
         position: relative;
+
         &-inner {
             position: absolute;
             z-index: 100;
         }
+
+        &_one {
+            &:after {
+                content: "1";
+            }
+        }
+
+        &_two {
+            &:after {
+                content: "2";
+            }
+        }
+
+        &_three {
+            &:after {
+                content: "3";
+            }
+        }
+
+        &_four {
+            &:after {
+                content: "4";
+            }
+        }
+
         &:after {
-            content: "1";
             position: absolute;
             z-index: 1;
             top: 0;
@@ -23,36 +50,24 @@
             height: 100%;
             width: 100%;
             text-align: right;
-            font-weight: 400;
+            
             font-size: 280px;
             line-height: 208px;
             color: $secondary-color;
-        }        
+        }
+
     }
+
     &__img {
         width: 80px;
     }
+
     &__descr {
         margin-top: 31px;
         font-family: 'Arial';
-        font-weight: 400;
+        
         font-size: 16px;
         line-height: 24px;
         color: #444444;
-    }
-    #two {
-        &:after {
-            content: "2";
-        }
-    }
-    #three {
-        &:after {
-            content: "3";
-        }
-    }
-    #four {
-        &:after {
-            content: "4";
-        }
     }
 }

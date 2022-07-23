@@ -1,7 +1,6 @@
 .btn {
     text-transform: uppercase;
     border: none;
-    font-weight: 400;
     font-size: 20px;
     line-height: 20px;
     color: #FFFFFF;
@@ -10,22 +9,20 @@
     justify-content: center;
     align-items: center;
     transition: all 0.2s ease-in;
+    cursor: pointer;
 
     &_min {
-        padding: 10px 53px;
         width: 168px;
         height: 40px;
     }
 
     &_medium {
-        padding: 8px 26px;
         width: 244px;
         min-width: 244px;
         height: 40px;
     }
 
     &_large {
-        padding: 14px 26px;
         width: 244px;
         height: 54px;
     }
@@ -33,7 +30,6 @@
     &_extra-large {
         width: 568px;
         height: 52px;
-        padding: 13px 16px;
     }
 
     &:hover {

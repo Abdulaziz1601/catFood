@@ -196,5 +196,44 @@
     }
   ],
   "reply": [],
-  "feedback": []
+  "feedback": [
+    {
+      "program": "Не знаю (Нужен ваш совет)",
+      "email": "abdulazizfaactory@gmail.com",
+      "phoneNumber": "+998998954759",
+      "comments": "asasdlkasdlaksnd",
+      "more": [
+        "питьевая вода",
+        "молоко"
+      ],
+      "id": 1
+    },
+    {
+      "program": "Набор массы",
+      "email": "abdulazizfaactory@gmail.com",
+      "phoneNumber": "+998998954759",
+      "comments": "alsdmlasmdlaksmd",
+      "more": [
+        "сахарозаменитель",
+        "питьевая вода",
+        "молоко",
+        "витамины"
+      ],
+      "id": 2
+    },
+    {
+      "catName": "asdkjasdj",
+      "catWeight": "10",
+      "catAge": "10",
+      "program": "похудение",
+      "email": "abdulazizfaactory@gmail.com",
+      "phoneNumber": "+998998954759",
+      "comments": "asasdlaksdlaskmd",
+      "more": [
+        "сахарозаменитель",
+        "витамины"
+      ],
+      "id": 3
+    }
+  ]
 }
