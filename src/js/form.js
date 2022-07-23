@@ -19,6 +19,20 @@ document.addEventListener("DOMContentLoaded", () => {
         return checkedMore;
     }
 
+    function showThanksModal(selector, text) {
+        const thanksModal = document.querySelector(selector);
+        thanksModal.querySelector('.thanks-modal__inner span').innerHTML = text;
+        thanksModal.classList.remove('hide');
+        thanksModal.classList.add('show');
+
+
+        setTimeout(() => {
+            thanksModal.classList.remove('show');
+            thanksModal.classList.add('hide');
+            thanksModal.querySelector('.thanks-modal__inner span').innerHTML = '';
+        }, 4000);
+    }
+
     const form = document.querySelector('form');
 
     form.addEventListener('submit', (e) => {
@@ -28,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const formData = new FormData(form);
 
-        const json = JSON.stringify({...Object.fromEntries(formData.entries()), 'more':checked}, null, 4);
+        const json = JSON.stringify({ ...Object.fromEntries(formData.entries()), 'more': checked }, null, 4);
 
         postData('http://localhost:3001/feedback', json)
             .then(data => {
@@ -38,6 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .finally(() => {
                 form.reset(); //Deletes text after sending it to server or We can clear their values incrementally, It is same 
+                showThanksModal('.thanks-modal', "Thanks for response")
+
             });
     })
 

@@ -88,11 +88,17 @@ html {
                 margin-top: 13px;
             }
 
-            &:focus-within {
-                color: rgba($main-color, $alpha: .4);
+            &:hover {
+                input {
+                    border: 1px solid #CDCDCD;
+                    box-shadow: 0 1px 2px 1px rgba($color: #CDCDCD, $alpha: .7);
+                }
+                // span {
+                //     border-bottom: 1px solid #000;
+                // }
             }
 
-            input[type="radio"] {
+            input {
                 -webkit-appearance: none;
                 appearance: none;
                 margin: 0;
@@ -102,11 +108,21 @@ html {
                 height: 40px;
                 transform: translateY(-0.075em);
                 border-radius: 100%;
+                // // self
+                box-shadow: 0 0px 2px 1px #CDCDCD;
                 border: 1px solid #CDCDCD;
+                // // Hover
+                // border: 1px solid #CDCDCD;
+                // box-shadow: 0 1px 2px 1px #CDCDCD;
+
+                // Checked
+                // box-shadow: 0 1px 2px 1px #CDCDCD, 0 0px 0px 1px $main-color;
+                // border: 1px solid $main-color;
                 display: grid;
                 place-content: center;
                 transition: 120ms all ease-in-out;
                 background-color: transparent;
+                outline: none;
 
                 &::before {
                     content: "";
@@ -124,6 +140,8 @@ html {
 
                 &:checked {
                     background-color: transparent;
+                    box-shadow: 0 2px 3px 1px #CDCDCD, 0 0px 0px 1px $main-color;
+                    outline: 1px solid $main-color;
                 }
 
                 &:focus {
@@ -132,12 +150,15 @@ html {
                 }
             }
 
+
             span {
                 margin-left: 50px;
                 font-size: 20px;
                 line-height: 30px;
                 text-transform: uppercase;
                 color: #222222;
+                // padding-bottom: 1px;
+                // border-bottom: 1px dotted transparent;
             }
         }
     }
@@ -242,7 +263,7 @@ html {
             }
         }
 
-        &-checkbox:checked + &-checkbox_custom::before {
+        &-checkbox:checked+&-checkbox_custom::before {
             content: url('../icons/check-on.svg');
             position: absolute;
             top: 50%;

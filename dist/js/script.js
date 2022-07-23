@@ -1,14 +1,3 @@
-// beforeEffectslider({
-//     Selector: "#beforeEffectslider", // Element that the slider will be build in
-//     BeforeImage: "../img/example/before.png", // Before Image
-//     AfterImage: "../img/example/after.png",// After Image,
-//     Border: {
-//         width: 0
-//     },
-//     LineColor: 'transparent', //Line size
-//     Buttons: false,
-// });
-
 "use strict";
 document.addEventListener("DOMContentLoaded", () => {
     // Services
@@ -47,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 data.forEach(item => arr.push(...item));
                 return arr;
             })
-            .then(data =>  data.find(item =>  item.name.toLowerCase() === productName).id);
+            .then(data => data.find(item => item.name.toLowerCase() === productName).id);
     };
 
     // catalog fetching
@@ -55,6 +44,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const productsContainer = document.querySelector('.products__wrapper'),
         modal = document.querySelector('.modal');
 
+    function showThanksModal(selector, text) {
+        closeModal('.modal');
+        const thanksModal = document.querySelector(selector);
+        thanksModal.querySelector('.thanks-modal__inner span').innerHTML = text;
+        thanksModal.classList.remove('hide');
+        thanksModal.classList.add('show');
+
+
+        setTimeout(() => {
+            thanksModal.classList.remove('show');
+            thanksModal.classList.add('hide');
+            thanksModal.querySelector('.thanks-modal__inner span').innerHTML = '';
+        }, 4000);
+    }
     productsContainer.innerHTML = '<div class="lds-ring cat__spinner"><div></div><div></div><div></div><div></div></div>';
 
     const renderProducts = (count) => {
@@ -145,33 +148,41 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.classList.remove('hide');
         document.body.style.overflow = 'hidden';
     }
+    function closeModal(modalSelector) {
+        const modal = document.querySelector(modalSelector);//  '.modal'
+
+        modal.classList.add('hide');
+        modal.classList.remove('show');
+        document.body.style.overflow = ''; //browser automatically knows what to do
+    }
 
     const close = document.querySelectorAll('[data-close]');
 
     close.forEach(element => {
-        element.addEventListener('click', () => {
-            modal.classList.add('hide');
-            modal.classList.remove('show');
-            document.body.style.overflow = '';
-        });
+        element.addEventListener('click', () => closeModal('.modal'));
     });
 
     modal.querySelector('form').addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const formData = new FormData(modal.querySelector('form')),
-              p_name = modal.querySelector('.modal__title span').textContent.toLowerCase().trim(),
-              p_id = await searchFromAll(p_name),
-              json = JSON.stringify({
-                    ...Object.fromEntries(formData.entries()),
-                    pid: p_id
-              });
-
+            p_name = modal.querySelector('.modal__title span').textContent.toLowerCase().trim(),
+            p_id = await searchFromAll(p_name),
+            json = JSON.stringify({
+                ...Object.fromEntries(formData.entries()),
+                pid: p_id
+            });
+        modal.querySelector('form button').innerHTML += '<div class="lds-ring cat__spinner"><div></div><div></div><div></div><div></div></div>'
         postData('http://localhost:3001/reply', json)
             .then(data => {
                 console.log(data);
+                showThanksModal('.thanks-modal', "Data is submitted")
             })
-            .catch((e) => console.log("Something went wrong" + e))
+            .catch((e) => {
+                console.log("Something went wrong" + e);
+                showThanksModal('.thanks-modal', "Error");
+
+            })
             .finally(() => {
                 e.target.reset();
             });
