@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const getProducts = async () => await getResource('https://my-json-server.typicode.com/Abdulaziz1601/catFood/products');
 
-    const getProduct = async (id) => await getResource(`https://my-json-server.typicode.com/Abdulaziz1601/catFood/products${id}`);
+    const getProduct = async (id) => await getResource(`https://my-json-server.typicode.com/Abdulaziz1601/catFood/products/${id}`);
 
     const getAdditionals = async () => await getResource('https://my-json-server.typicode.com/Abdulaziz1601/catFood/additionals');
 
